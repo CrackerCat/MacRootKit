@@ -12,7 +12,6 @@ if argc < 2:
 
 env = os.environ.copy()
 env['IPATOOL_EMAIL'] = 'ilhan.raja@icloud.com'
-env['IPATOOL_PASSWORD'] = '!123AlperenSengun'
 env['IPATOOL_2FA_CODE'] = '452633'
 
 command = ['ipatool','auth', 'login']
@@ -43,7 +42,7 @@ for i in range(1, argc):
 	print('Installing app with app id %s' %(app_id))
 
 	for line in stream:
-		regex = re.compile('(?<=:).*')
+		regex = re.compile(r'\b(?![A-Z])[\w-]+(?:\.[\w-]+)+\b')
 
 		result = regex.findall(line)
 
